@@ -1,3 +1,4 @@
+
 javac="/home/user/JavaC/jdk1.8.0_162/bin/javac.exe"
 
 var=3
@@ -24,13 +25,19 @@ else
 		echo
 		java hello2
 	else
-		echo -e "*---- Compilando ----*"
+		sudo echo -e "*---- Compilando ----*"
 		echo javac hello.java
 		echo
 		javac hello.java
-		echo -e "*---- Executando ----*"
-		echo java hello
+		echo -e "*--- Gerando Jar ---*"
+		echo jar cvfm Quadradado.jar mymanifest.mf hello.class
 		echo
-		java hello
+		jar cvfm Quadradado.jar mymanifest.mf hello.class
+		echo
+		echo -e "*---- Executando ----*"
+		echo java -jar Quadradado.jar
+		echo
+		java -jar Quadradado.jar
+		sudo chmod 775 Quadradado.jar
 	fi
 fi
